@@ -35,9 +35,8 @@ Armazenamento em logs com o andamento das análises.
 Interface interativa para verificar a existência dos comandos num determinado ambiente conda.
 Possibilidade para escolher executar o script 2.
 
-❗️ Atenção
+❗️ Atenção  
 Caso enfrente problemas ao executar os scripts, tenha em atenção os seguintes esquecimentos:
 - Alterar os paths para os paths da sua área
 - Instalar ambiente conda, contendo os comandos necessários à sua execução
-
-
+- Ter atenção ao nome do samples e à estrutura da "tabela" que esta representa
