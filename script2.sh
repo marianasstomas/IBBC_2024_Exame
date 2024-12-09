@@ -35,8 +35,8 @@ while IFS=$'\t' read -r amostra tratamento ficheiro; do
         fastqc "$ficheiro_path" -o /home/fc60421/script_exame/$dir_name/output_data/pre_fastp | tee -a "$log_file"
         echo "" | tee -a "$log_file"
    else
-        echo "O seguinte ficheiro não foi encontrado: $ficheiro_path"
-        echo ""
+        echo "O seguinte ficheiro não foi encontrado: $ficheiro_path" | tee -a "$log_file"
+        echo "" | tee -a "$log_file"
    fi
 done < "$samples"
 
@@ -47,10 +47,11 @@ if compgen -G "$pre_fastp/*.zip" > /dev/null; then
            -o /home/fc60421/script_exame/$dir_name/output_data/pre_fastp | tee -a "$log_file"
    echo "" | tee -a "$log_file"
 else
-   echo "Não existem ficheiros fastqc para analisar!"
+   echo "Não existem ficheiros fastqc para analisar!" | tee -a "$log_file"
 fi
 
-echo "Análise de ficheiros pré-processamento completa!"
+echo "Análise de ficheiros pré-processamento completa!" | tee -a "$log_file"
+echo "" | tee -a "$log_file"
 
 # Executar FastP
 echo "A executar análise com FastP..."
@@ -77,19 +78,20 @@ while IFS=$'\t' read -r amostra tratamento ficheiro; do
         else
             echo "Amostra $ficheiro: Detetado modo single-end" | tee -a "$log_file"
             fastp -i "$ficheiro_path" \
-                  -o "$fastp_output/${ficheiro/.fastq.gz/_cleaned_1.fastq.gz}" \
+                  -o "$fastp_output/${ficheiro/.fastq.gz/_cleaned.fastq.gz}" \
                   --cut_front --cut_tail -g -p -q 20 \
                   -j "$fastp_output/${ficheiro/.fastq.gz/_report.json}" &>> "$log_file" \
-                  -h "$fastp_output/${ficheiro/.fastq.gz/_report.html}" 
+                  -h "$fastp_output/${ficheiro/.fastq.gz/_report.html}"
             echo "" | tee -a "$log_file"
         fi
    else
-        echo "Ficheiro $ficheiro_path não encontrado para análise com FastP!"
+        echo "Ficheiro $ficheiro_path não encontrado para análise com FastP!" | tee -a "$log_file"
+        echo "" | tee -a "$log_file"
    fi
 done < "$samples"
 
-echo "Análise de FastP concluída!"
-echo ""
+echo "Análise de FastP concluída!" | tee -a "$log_file"
+echo "" | tee -a "$log_file"
 
 # Executar FastQC após FastP
    if compgen -G "$fastp_output/*.gz" > /dev/null; then
@@ -97,19 +99,20 @@ echo ""
         fastqc "$fastp_output"/*.gz -o /home/fc60421/script_exame/$dir_name/output_data/pos_fastp | tee -a "$log_file"
         echo "" | tee -a "$log_file"
    else
-        echo "O seguinte ficheiro não foi encontrado: $ficheiro_path"
-        echo ""
+        echo "O seguinte ficheiro não foi encontrado: $ficheiro_path" | tee -a "$log_file"
+        echo "" | tee -a "$log_file"
    fi
 
 # Executar MultiQC após FastP
    if compgen -G "$pos_fastp/*.zip" > /dev/null; then
         echo "A executar o MultiQC pós-FastP em todos os ficheiros FastQC" | tee -a "$log_file"
         multiqc /home/fc60421/script_exame/$dir_name/output_data/pos_fastp/*.zip \
-                -o /home/fc60421/script_exame/$dir_name/output_data/pos_fastpc | tee -a "$log_file"
+                -o /home/fc60421/script_exame/$dir_name/output_data/pos_fastp | tee -a "$log_file"
        echo "" | tee -a "$log_file"
    else
-        echo "Não existem ficheiros fastqc para analisar!"
+        echo "Não existem ficheiros fastqc para analisar!" | tee -a "$log_file"
+        echo "" | tee -a "$log_file"
    fi
 
 echo "Análise de ficheiros completa!" | tee -a "$log_file"
-echo ""
+echo "" | tee -a "$log_file"
