@@ -63,4 +63,4 @@ Caso enfrente problemas/dificuldades ao executar os scripts, tenha em atenção 
 
 - Alterar os paths para os paths da sua área.  
 - Instalar ambiente conda, contendo os comandos necessários à sua execução.  
-- Ter atenção ao nome do `samples` e à estrutura da "tabela" que esta representa.  
+- Ter atenção ao nome do ficheiro `samples` e à estrutura da "tabela" que esta representa.  
