@@ -1,5 +1,5 @@
-📊 Workflow de Análise com FastQC, MultiQC e FastP
-Este projeto consiste num pipeline de pré-processamento e análise de dados genómicos, utilizando as ferramentas FastQC, MultiQC e FastP. O pipeline foi estruturado em três etapas principais, ou seja, 3 scripts:
+📊 Workflow de Análise com FastQC, MultiQC e FastP  
+Este projeto consiste num pipeline de pré-processamento e análise de dados genómicos, utilizando as ferramentas FastQC, MultiQC e FastP. O pipeline foi estruturado em três etapas principais, ou seja, 3 scripts:  
 - O script 1 cria as diretorias necessárias.
 - O script 2 realiza as análises de FastQC, MultiQC e FastP:
   1. Pré-processamento com FastQC e MultiQC
