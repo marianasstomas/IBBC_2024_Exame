@@ -59,7 +59,7 @@ Interface interativa para verificar a existência dos comandos num determinado a
 
 ## ⚠️ **Atenção**  
 
-Caso enfrente problemas ao executar os scripts, tenha em atenção os seguintes pontos:  
+Caso enfrente problemas/dificuldades ao executar os scripts, tenha em atenção os seguintes pontos:  
 
 - Alterar os paths para os paths da sua área.  
 - Instalar ambiente conda, contendo os comandos necessários à sua execução.  
