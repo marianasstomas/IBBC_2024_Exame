@@ -5,40 +5,39 @@ Este projeto consiste num pipeline de pré-processamento e análise de dados gen
   1. Pré-processamento com FastQC e MultiQC
   2. Análise com FastP
   3. Análise pós-processamento com FastQC e MultiQC
-- O script 3 permite a visualização dos outputs gerados pelos processos, como ficheiros html em firefox e ficheiros txt.
-Os scripts estão associados uns aos outros, isto é correndo o script 2, o script 1 corre automaticamente e correndo o script 3 o script 2 e 1 correm também automaticamente, pelo que para visualizar de uma vez todos apenas é necessário correr o script 3!
+- O script 3 permite a verificação da existência dos comandos necessários ao script 2, permitindo escolher o ambiente conda onde estes poderão estar e apresenta também a opção de executar o script 2.  
+
+Os scripts estão associados uns aos outros, isto é executando o script 2, o script 1 é executado automaticamente e executando o script 3, existe uma opção que permite executar o script 2.
 
 🚀 Objetivo do pipeline  
 O objetivo principal deste pipeline é realizar análises rápidas em dados genómicos, avaliar a qualidade dos dados com FastQC e MultiQc, realizar a análise com FastP e, por fim, consolidar os resultados utilizando, novamente, o FastQC e MultiQC.
 
 🏆 Ferramentas Utilizadas  
-FastQC: Avaliação de qualidade de dados sequenciais.
-FastP: Pré-processamento dos dados FASTQ.
-MultiQC: Consolidação dos relatórios gerados pelo FastQC e FastP.
-Conda: Gerenciamento do ambiente Python com dependências específicas.
+- FastQC: Avaliação de qualidade dos ficheiros "gz";
+- MultiQC: Avaliação comparativa dos ficheiros "fastqc";
+- FastP: Processamento dos ficheiros "gz";
+- Conda: Gerenciamento do ambiente Python com dependências específicas.
 
 📂 Estrutura do Código  
 🖥️ script1.sh  
 Configuração do ambiente inicial e definição das variáveis essenciais.
-Preparação dos diretórios necessários.
+Preparação das diretórias necessários.
 Configuração da estrutura de logs.  
 🖥️ script2.sh  
 Realiza o processamento principal:
-Execução do FastQC nos dados de entrada.
-Execução do MultiQC antes da execução do FastP.
-Execução do FastP para limpeza de dados FASTQ.
-Execução do FastQC após a execução do FastP.
-Execução do MultiQC para consolidar relatórios finais.
+- Execução do FastQC nos dados de entrada.
+- Execução do MultiQC antes da execução do FastP.
+- Execução do FastP para limpeza dos dados.
+- Execução do FastQC após a execução do FastP.
+- Execução do MultiQC após a execução do FastP.
 Armazenamento em logs com o andamento das análises.  
 🖥️ script3.sh  
-Interface interativa para visualizar relatórios:
-1. Relatórios pré-fastP.
-2. Relatórios após execução do FastP.
-3. Relatórios finais pós-análise.
-4. Relatório de log.
+Interface interativa para verificar a existência dos comandos num determinado ambiente conda.
+Possibilidade para escolher executar o script 2.
 
-🛠️ Pré-requisitos  
-Antes de executar os scripts, certifique-se de que as ferramentas necessárias estão instaladas:
-- Conda instalado com o ambiente necessário que permita correr FastQC, FastP e MultiQC
-- Firefox instalado
+❗️ Atenção
+Caso enfrente problemas ao executar os scripts, tenha em atenção os seguintes esquecimentos:
+- Alterar os paths para os paths da sua área
+- Instalar ambiente conda, contendo os comandos necessários à sua execução
+
 
