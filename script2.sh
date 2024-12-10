@@ -5,11 +5,8 @@ source /home/fc60421/script_exame/script1.sh
 
 # Explicação do workflow
 echo "O workflow vai ser o seguinte: "
-echo ""
 echo "1º FastQC e MultiQC pré-processamento"
-echo ""
 echo "2º FastP"
-echo ""
 echo "3º FastQC e MultiQC prós-processamento"
 echo ""
 
