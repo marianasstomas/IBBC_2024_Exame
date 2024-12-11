@@ -51,9 +51,9 @@ Realiza o processamento principal:
 
 ---
 
-### 🖥️ **script3.sh**  
+### 🖥️ **script3.sh** - Script criativo
 
-Interface interativa para verificar a existência dos comandos num determinado ambiente conda. Possibilidade para escolher executar o script **2**.  
+Script interativo para verificar a existência dos comandos num determinado ambiente conda. Possibilidade para escolher executar o script **2**.  
 
 ---
 
@@ -62,5 +62,14 @@ Interface interativa para verificar a existência dos comandos num determinado a
 Caso enfrente problemas/dificuldades ao executar os scripts, tenha em atenção os seguintes pontos:  
 
 - Alterar os paths para os paths da sua área.  
-- Instalar ambiente conda, contendo os comandos necessários à sua execução.  
-- Ter atenção ao nome do ficheiro `samples` e à estrutura da "tabela" que esta representa.  
+- Instalar/possuir ambiente conda, contendo os comandos necessários à sua execução. Ter cuidado com o path e o nome do mesmo, irá ser diferente do código.
+- Sempre que for necessário alterar o código do **FastP** será necessário alterar no código.
+- Ter atenção ao nome do ficheiro `samples` e à estrutura da "tabela" que estepossui.
+
+---
+
+## 🔧 Aspetos a melhorar  
+
+- Colocar uma linha de código que permita mudar o comando de **FastP** mais facilmente, isto é, torná-la numa variável.
+- Não copiar sempre os ficheiros de raw data para as novas diretorias, de forma a não ficarmos com demasiados fichieros, caso queiramos experimentar diferentes parâmetros para o **FastP**.
+- Colocar em cada diretoria principal a data de criação, de forma a tornar mais fácil a organização se se realizarem muitas análises
